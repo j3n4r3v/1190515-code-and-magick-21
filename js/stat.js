@@ -26,10 +26,10 @@ const getMaxElement = function (arr) { // Максимальное значен�
 
 window.renderStatistics = function (ctx, players, times) {
   renderCloud(
-    ctx,
-    CLOUD_X + GAP - GAP / 1.5, // Почему здесь просто не GAP/5=10?
-    CLOUD_Y + GAP - GAP / 1.5,
-    `rgba(0, 0, 0, 0.7)`
+      ctx,
+      CLOUD_X + GAP - GAP / 1.5, // Почему здесь просто не GAP/5=10?
+      CLOUD_Y + GAP - GAP / 1.5,
+      `rgba(0, 0, 0, 0.7)`
   );
 
   renderCloud(ctx, CLOUD_X, CLOUD_Y, `#fff`);
@@ -44,43 +44,43 @@ window.renderStatistics = function (ctx, players, times) {
     ctx.textBaseline = `hanging`;
 
     ctx.fillText(
-      `Ура вы победили!`,
-      CLOUD_X + GAP - GAP / 1.5,
-      CLOUD_Y + GAP - GAP / 2
+        `Ура вы победили!`,
+        CLOUD_X + GAP - GAP / 1.5,
+        CLOUD_Y + GAP - GAP / 2 // Почему здесь различия на 1.5-2?
     );
 
     ctx.fillText(
-      `Список результатов:`,
-      CLOUD_X + GAP - GAP / 1.5,
-      CLOUD_Y + GAP
+        `Список результатов:`,
+        CLOUD_X + GAP - GAP / 1.5,
+        CLOUD_Y + GAP
     );
 
     if (players[i] === `Вы`) {
       ctx.fillStyle = `rgba(255, 0, 0, 1)`;
     } else {
-      ctx.fillStyle = `hsl(240, ` + Math.round(Math.random() * 100) + `%, 50%)`;
+      ctx.fillStyle = `hsl(240, ` + Math.round(Math.random() * 100) + `%, 50%)`; // Сколько знавчений у хсл?
     }
 
     ctx.fillRect(
-      CLOUD_X + GAP / 1.5 + GAP * 2 * i,
-      CLOUD_Y + CLOUD_HEIGHT - GAP / 1.2,
-      BAR_WIDTH,
-      -(BAR_HEIGHT * times[i]) / maxTime
+        CLOUD_X + GAP / 1.5 + GAP * 2 * i,
+        CLOUD_Y + CLOUD_HEIGHT - GAP / 1.2,
+        BAR_WIDTH,
+        -(BAR_HEIGHT * times[i]) / maxTime
     );
 
     ctx.fillStyle = `#000`;
     ctx.fillText(
-      players[i],
-      CLOUD_X + GAP / 1.5 + GAP * 2 * i,
-      CLOUD_Y + CLOUD_HEIGHT - GAP / 1.5,
-      BAR_WIDTH
+        players[i],
+        CLOUD_X + GAP / 1.5 + GAP * 2 * i,
+        CLOUD_Y + CLOUD_HEIGHT - GAP / 1.5,
+        BAR_WIDTH
     );
 
     ctx.fillText(
-      Math.round(times[i]),
-      CLOUD_X + GAP / 1.5 + GAP * 2 * i,
-      CLOUD_HEIGHT - (BAR_HEIGHT * times[i]) / maxTime - GAP * 1.2,
-      BAR_WIDTH
+        Math.round(times[i]),
+        CLOUD_X + GAP / 1.5 + GAP * 2 * i,
+        CLOUD_HEIGHT - (BAR_HEIGHT * times[i]) / maxTime - GAP * 1.2,
+        BAR_WIDTH
     );
   }
 };
