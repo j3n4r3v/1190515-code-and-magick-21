@@ -4,8 +4,8 @@ const CLOUD_WIDTH = 420; // ширина облака
 const CLOUD_HEIGHT = 270; // высота облака
 const CLOUD_X = 100; // начальная координата Х облака
 const CLOUD_Y = 10; // начальная координата Y облака
-const GAP = 50; //  отступы
-const BAR_HEIGHT = 130; // высота колонки
+const GAP = 50; //  отступ
+const BAR_HEIGHT = 150; // высота колонки
 const BAR_WIDTH = 40; // ширина колонки
 
 const renderCloud = function (ctx, x, y, color) {
@@ -21,7 +21,6 @@ const getMaxElement = function (arr) {
       maxElement = arr[i];
     }
   }
-
   return maxElement;
 };
 
